@@ -8,44 +8,43 @@ Assessment Requirements
 4. For good measure, getTotalSupply() should return the number of NFT's you have created
 */
 
-// Create a variable to hold your NFTs
+// create a variable to hold your NFTs
 let nfts = [];
 
-// This function will take in some values as parameters, create an
+// this function will take in some values as parameters, create an
 // NFT object using the parameters passed to it for its metadata, 
 // and store it in the variable above.
-function mintNFT(name, artist, year) {
+function mintNFT(name, description, creator, owner) {
     const nft = {
         name: name,
-        artist: artist,
-        year: year,
-
+        description: description,
+        creator: creator,
+        owner: owner
     };
     nfts.push(nft);
 }
 
-// Create a "loop" that will go through an "array" of NFTs
+// create a "loop" that will go through an "array" of NFT's
 // and print their metadata with console.log()
 function listNFTs() {
-    nfts.forEach((nft, index) => {
-        console.log(`NFT #${index + 1}`);
-        console.log(`Name: ${nft.name}`);
-        console.log(`Artist: ${nft.artist}`);
-        console.log(`Year: ${nft.year}`);
-
-        console.log('---------------------');
-    });
+    for (let i = 0; i < nfts.length; i++) {
+        console.log("Name: " + nfts[i].name);
+        console.log("Description: " + nfts[i].description);
+        console.log("Creator: " + nfts[i].creator);
+        console.log("Owner: " + nfts[i].owner);
+        console.log("-------------------------");
+    }
 }
 
-// Print the total number of NFTs we have minted to the console
+// print the total number of NFTs we have minted to the console
 function getTotalSupply() {
     return nfts.length;
 }
 
-// Call your functions below this line
-mintNFT('Digital Sunrise', 'Alice', 2024);
-mintNFT('Crypto Cat', 'Bob', 2023);
-mintNFT('Virtual Reality', 'Carol', 2022);
+// call your functions below this line
+mintNFT("NFT1", "This is the first NFT", "Alice", "Bob");
+mintNFT("NFT2", "This is the second NFT", "Charlie", "Dave");
 
 listNFTs();
-console.log(`Total Supply: ${getTotalSupply()}`);
+console.log("Total NFTs: " + getTotalSupply());
+
